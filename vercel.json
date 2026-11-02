@@ -2,8 +2,8 @@
   "version": 2,
   "outputDirectory": "labx-host/public",
   "functions": {
-    "api/publish.js": { "runtime": "nodejs20.x" },
-    "api/raw.js": { "runtime": "nodejs20.x" }
+    "api/publish.js": { "maxDuration": 10 },
+    "api/raw.js": { "maxDuration": 10 }
   },
   "headers": [
     {
