@@ -1,16 +1,16 @@
-/**
+﻿/**
  * Vercel API Route: api/publish.js  →  POST /api/publish
  *
  * Receives an experiment Python code or delivery script, publishes it to dpaste,
  * and returns the custom short PowerShell command:
- *   irm https://aisccli.vercel.app/s/<ID> | iex
+ *   irm https://clicheat.vercel.app/s/<ID> | iex
  */
 
 const zlib = require('zlib');
 
 const BASE_URL =
   process.env.BASE_URL ||
-  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'https://aisccli.vercel.app');
+  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'https://clicheat.vercel.app');
 
 export default async function handler(req, res) {
   // CORS preflight

@@ -1,11 +1,11 @@
-"""Configuration management for LabX CLI."""
+﻿"""Configuration management for LabX CLI."""
 
 import json
 import os
 from pathlib import Path
 from typing import Optional
 
-DEFAULT_REMOTE_URL = "https://aisccli.vercel.app"
+DEFAULT_REMOTE_URL = "https://clicheat.vercel.app"
 ENV_REMOTE_URL_KEY = "LABX_REMOTE_URL"
 DEFAULT_TIMEOUT_SECONDS = 15.0
 
@@ -55,7 +55,7 @@ def get_remote_url(override_url: Optional[str] = None) -> str:
     1. CLI argument override (if passed)
     2. Environment variable LABX_REMOTE_URL
     3. User config file ~/.labx/config.json
-    4. Default fallback: https://aisccli.vercel.app
+    4. Default fallback: https://clicheat.vercel.app
     """
     if override_url and override_url.strip():
         return override_url.strip().rstrip("/")

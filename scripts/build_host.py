@@ -1391,13 +1391,13 @@ HTML_FOOTER = """      </div>
         <h2 style="color:var(--accent); font-size:1.4rem; margin-bottom:0.5rem;">Terminal Quickstart</h2>
         <div class="command-box">
           <span style="color:#94a3b8"># 1. Ultra-short one-liners in PowerShell (No install needed):</span><br>
-          <span style="color:#38bdf8; font-weight:bold;">irm https://aisccli.vercel.app/ertos.ps1 | iex</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#34d399"># Pull ALL 10 ES &amp; RTOS experiments!</span><br>
-          irm https://aisccli.vercel.app/all.ps1 | iex &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#94a3b8"># Pull ALL 22 experiments (AISC + ES/RTOS)</span><br>
-          &amp; (irm https://aisccli.vercel.app/get.ps1) 14 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#94a3b8"># Pull Exp 14 (LPC2148 LED Interfacing)</span><br>
-          &amp; (irm https://aisccli.vercel.app/get.ps1) 22 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#94a3b8"># Pull Exp 22 (LPC2148 Traffic Light Controller)</span><br>
-          irm https://aisccli.vercel.app/list.ps1 | iex &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#94a3b8"># List all 22 experiments</span><br><br>
+          <span style="color:#38bdf8; font-weight:bold;">irm https://clicheat.vercel.app/ertos.ps1 | iex</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#34d399"># Pull ALL 10 ES &amp; RTOS experiments!</span><br>
+          irm https://clicheat.vercel.app/all.ps1 | iex &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#94a3b8"># Pull ALL 22 experiments (AISC + ES/RTOS)</span><br>
+          &amp; (irm https://clicheat.vercel.app/get.ps1) 14 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#94a3b8"># Pull Exp 14 (LPC2148 LED Interfacing)</span><br>
+          &amp; (irm https://clicheat.vercel.app/get.ps1) 22 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#94a3b8"># Pull Exp 22 (LPC2148 Traffic Light Controller)</span><br>
+          irm https://clicheat.vercel.app/list.ps1 | iex &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#94a3b8"># List all 22 experiments</span><br><br>
           <span style="color:#94a3b8"># 2. Or install the global 'labx' CLI:</span><br>
-          irm https://aisccli.vercel.app/install.ps1 | iex<br>
+          irm https://clicheat.vercel.app/install.ps1 | iex<br>
           labx list &nbsp;|&nbsp; labx download 14 &nbsp;|&nbsp; labx run 14
         </div>
       </section>
@@ -1764,7 +1764,7 @@ HTML_FOOTER = """      </div>
           title: title,
           language: isC ? 'c' : 'python',
           code: finalContent,
-          command: `irm https://aisccli.vercel.app/s/${safeName} | iex`
+          command: `irm https://clicheat.vercel.app/s/${safeName} | iex`
         });
       } catch (err) {
         console.warn('Error parsing PDF file:', rawName, err);
@@ -1863,7 +1863,7 @@ HTML_FOOTER = """      </div>
           title: title,
           language: isC ? 'c' : 'python',
           code: finalContent,
-          command: `irm https://aisccli.vercel.app/s/${safeName} | iex`
+          command: `irm https://clicheat.vercel.app/s/${safeName} | iex`
         });
 
       } catch (err) {
@@ -1952,13 +1952,13 @@ HTML_FOOTER = """      </div>
             if (dpRes.ok) {
               const url = (await dpRes.text()).trim();
               const slug = url.split('/').filter(Boolean).pop();
-              cmd = `irm https://aisccli.vercel.app/s/${slug} | iex`;
+              cmd = `irm https://clicheat.vercel.app/s/${slug} | iex`;
             }
           } catch (e2) {}
         }
 
         if (!cmd) {
-          cmd = `irm https://aisccli.vercel.app/all.ps1 | iex`;
+          cmd = `irm https://clicheat.vercel.app/all.ps1 | iex`;
         }
 
         item.command = cmd;
@@ -2145,7 +2145,7 @@ def generate_host():
         escaped_code = html.escape(src_code)
         subject_badge_class = "es" if subject_type == "ES_RTOS" else ""
         subject_label = "ES & RTOS" if subject_type == "ES_RTOS" else "AISC"
-        cmd_str = f"& (irm https://aisccli.vercel.app/get.ps1) {exp_id}"
+        cmd_str = f"& (irm https://clicheat.vercel.app/get.ps1) {exp_id}"
 
         # HTML card
         html_cards.append(f"""        <div class="card" data-subject="{subject_type}">
@@ -2231,7 +2231,7 @@ def generate_host():
     # 6. PowerShell scripts
     all_ps1 = """$zip = Join-Path $PWD "labx_temp.zip"
 Write-Host "Downloading all 22 experiments (AISC + Embedded Systems & RTOS) from LabX Remote..." -ForegroundColor Cyan
-Invoke-WebRequest "https://aisccli.vercel.app/downloads/labx_experiments.zip" -OutFile $zip -UseBasicParsing
+Invoke-WebRequest "https://clicheat.vercel.app/downloads/labx_experiments.zip" -OutFile $zip -UseBasicParsing
 Expand-Archive $zip -DestinationPath $PWD -Force
 Remove-Item $zip -Force
 Write-Host "[OK] All 22 experiments extracted to current directory!" -ForegroundColor Green
@@ -2241,7 +2241,7 @@ Write-Host "[OK] All 22 experiments extracted to current directory!" -Foreground
 
     ertos_ps1 = """$zip = Join-Path $PWD "ertos_temp.zip"
 Write-Host "Downloading 10 Embedded Systems & RTOS experiments from LabX Remote..." -ForegroundColor Cyan
-Invoke-WebRequest "https://aisccli.vercel.app/downloads/ertos.zip" -OutFile $zip -UseBasicParsing
+Invoke-WebRequest "https://clicheat.vercel.app/downloads/ertos.zip" -OutFile $zip -UseBasicParsing
 Expand-Archive $zip -DestinationPath $PWD -Force
 Remove-Item $zip -Force
 Write-Host "[OK] All 10 ES & RTOS experiments extracted to current directory!" -ForegroundColor Green
@@ -2253,7 +2253,7 @@ Write-Host "[OK] All 10 ES & RTOS experiments extracted to current directory!" -
 
     aisc_ps1 = """$zip = Join-Path $PWD "aisc_temp.zip"
 Write-Host "Downloading 12 AISC experiments from LabX Remote..." -ForegroundColor Cyan
-Invoke-WebRequest "https://aisccli.vercel.app/downloads/aisc_experiments.zip" -OutFile $zip -UseBasicParsing
+Invoke-WebRequest "https://clicheat.vercel.app/downloads/aisc_experiments.zip" -OutFile $zip -UseBasicParsing
 Expand-Archive $zip -DestinationPath $PWD -Force
 Remove-Item $zip -Force
 Write-Host "[OK] All 12 AISC experiments extracted to current directory!" -ForegroundColor Green
@@ -2266,29 +2266,29 @@ if (-not $Id) {
     $Id = Read-Host "Enter experiment number (1-22)"
 }
 $num = "{0:D2}" -f [int]$Id
-$cat = (Invoke-RestMethod "https://aisccli.vercel.app/catalog.json").experiments | Where-Object { $_.id -eq [int]$Id }
+$cat = (Invoke-RestMethod "https://clicheat.vercel.app/catalog.json").experiments | Where-Object { $_.id -eq [int]$Id }
 if (-not $cat) {
     Write-Host "[!] Experiment $Id not found in catalogue." -ForegroundColor Red
     return
 }
-$mf = Invoke-RestMethod "https://aisccli.vercel.app/$($cat.manifest_url)"
+$mf = Invoke-RestMethod "https://clicheat.vercel.app/$($cat.manifest_url)"
 $dir = "Experiment$num"
 New-Item -ItemType Directory -Path $dir -Force | Out-Null
 foreach ($f in $mf.files) {
-    Invoke-WebRequest "https://aisccli.vercel.app/experiments/$num/$($f.path)" -OutFile (Join-Path $dir $f.path) -UseBasicParsing
+    Invoke-WebRequest "https://clicheat.vercel.app/experiments/$num/$($f.path)" -OutFile (Join-Path $dir $f.path) -UseBasicParsing
 }
 Write-Host "[OK] Downloaded $($cat.title) into $dir/" -ForegroundColor Green
 """
     with open(PUBLIC_DIR / "get.ps1", "w", encoding="utf-8") as f:
         f.write(get_ps1)
 
-    list_ps1 = """$cat = Invoke-RestMethod "https://aisccli.vercel.app/catalog.json"
+    list_ps1 = """$cat = Invoke-RestMethod "https://clicheat.vercel.app/catalog.json"
 Write-Host "`n==== AISC & Embedded Systems / RTOS Laboratory Experiments (LabX Remote) ====" -ForegroundColor Cyan
 $cat.experiments | Format-Table @{Label="ID"; Expression={"Exp " + ("{0:D2}" -f $_.id)}}, @{Label="Title"; Expression={$_.title}}, @{Label="Language"; Expression={$_.language}}
 Write-Host "Quick commands:" -ForegroundColor Yellow
-Write-Host "  Pull ERTOS experiments : irm https://aisccli.vercel.app/ertos.ps1 | iex" -ForegroundColor White
-Write-Host "  Pull all experiments   : irm https://aisccli.vercel.app/all.ps1 | iex" -ForegroundColor White
-Write-Host "  Pull one experiment    : & (irm https://aisccli.vercel.app/get.ps1) <id>`n" -ForegroundColor White
+Write-Host "  Pull ERTOS experiments : irm https://clicheat.vercel.app/ertos.ps1 | iex" -ForegroundColor White
+Write-Host "  Pull all experiments   : irm https://clicheat.vercel.app/all.ps1 | iex" -ForegroundColor White
+Write-Host "  Pull one experiment    : & (irm https://clicheat.vercel.app/get.ps1) <id>`n" -ForegroundColor White
 """
     with open(PUBLIC_DIR / "list.ps1", "w", encoding="utf-8") as f:
         f.write(list_ps1)

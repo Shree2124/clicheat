@@ -3,15 +3,15 @@ if (-not $Id) {
     $Id = Read-Host "Enter experiment number (1-22)"
 }
 $num = "{0:D2}" -f [int]$Id
-$cat = (Invoke-RestMethod "https://aisccli.vercel.app/catalog.json").experiments | Where-Object { $_.id -eq [int]$Id }
+$cat = (Invoke-RestMethod "https://clicheat.vercel.app/catalog.json").experiments | Where-Object { $_.id -eq [int]$Id }
 if (-not $cat) {
     Write-Host "[!] Experiment $Id not found in catalogue." -ForegroundColor Red
     return
 }
-$mf = Invoke-RestMethod "https://aisccli.vercel.app/$($cat.manifest_url)"
+$mf = Invoke-RestMethod "https://clicheat.vercel.app/$($cat.manifest_url)"
 $dir = "Experiment$num"
 New-Item -ItemType Directory -Path $dir -Force | Out-Null
 foreach ($f in $mf.files) {
-    Invoke-WebRequest "https://aisccli.vercel.app/experiments/$num/$($f.path)" -OutFile (Join-Path $dir $f.path) -UseBasicParsing
+    Invoke-WebRequest "https://clicheat.vercel.app/experiments/$num/$($f.path)" -OutFile (Join-Path $dir $f.path) -UseBasicParsing
 }
 Write-Host "[OK] Downloaded $($cat.title) into $dir/" -ForegroundColor Green

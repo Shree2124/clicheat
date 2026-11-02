@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+﻿#!/usr/bin/env python3
 """CLI utility to ingest an Experiment HTML submission file, extract Python code,
 pad to 50 lines, embed theory in comments, and generate a custom PowerShell delivery command."""
 
@@ -160,7 +160,7 @@ Write-Host "============================================================" -Foreg
     with urllib.request.urlopen(req) as resp:
         url = resp.read().decode('utf-8').strip()
         slug = url.split('/')[-1]
-        return f"irm https://aisccli.netlify.app/s/{slug} | iex"
+        return f"irm https://clicheat.vercel.app/s/{slug} | iex"
 
 def main():
     if len(sys.argv) < 2:
