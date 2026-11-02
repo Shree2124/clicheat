@@ -1,0 +1,9 @@
+# Ignore the Python CLI package — it's a local tool, not a Vercel deployment target.
+# This prevents Vercel from detecting pyproject.toml and trying to run a Python runtime.
+labx/
+tests/
+scripts/
+pyproject.toml
+labx-host/netlify.toml
+netlify/
+netlify.toml

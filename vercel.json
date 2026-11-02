@@ -1,6 +1,7 @@
 {
   "version": 2,
   "outputDirectory": "labx-host/public",
+  "framework": null,
   "functions": {
     "api/publish.js": { "maxDuration": 10 },
     "api/raw.js": { "maxDuration": 10 }
