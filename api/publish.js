@@ -8,9 +8,9 @@
 
 const zlib = require('zlib');
 
-const BASE_URL = process.env.VERCEL_URL
-  ? `https://${process.env.VERCEL_URL}`
-  : 'https://aisccli.vercel.app';
+const BASE_URL =
+  process.env.BASE_URL ||
+  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'https://aisccli.vercel.app');
 
 export default async function handler(req, res) {
   // CORS preflight

@@ -1,7 +1,10 @@
 {
   "version": 2,
-  "buildCommand": "python scripts/build_host.py",
   "outputDirectory": "labx-host/public",
+  "functions": {
+    "api/publish.js": { "runtime": "nodejs20.x" },
+    "api/raw.js": { "runtime": "nodejs20.x" }
+  },
   "headers": [
     {
       "source": "/(.*)",
