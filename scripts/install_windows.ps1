@@ -1,4 +1,4 @@
-﻿# scripts/install_windows.ps1
+ scripts/install_windows.ps1
 # LabX Remote - Automated Student Installation Script for Windows
 # Run in PowerShell: irm https://clicheat.vercel.app/install.ps1 | iex
 

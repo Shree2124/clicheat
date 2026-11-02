@@ -1,5 +1,4 @@
-﻿# scripts/install_windows.ps1
-# LabX Remote - Automated Student Installation Script for Windows
+# CliCheat - Automated Student Installation Script for Windows
 # Run in PowerShell: irm https://clicheat.vercel.app/install.ps1 | iex
 
 param (
@@ -10,7 +9,7 @@ param (
 $ErrorActionPreference = "Stop"
 
 Write-Host "==========================================================" -ForegroundColor Cyan
-Write-Host " LabX Remote - Windows Automated Installer" -ForegroundColor Cyan
+Write-Host " CliCheat - Windows Automated Installer" -ForegroundColor Cyan
 Write-Host "==========================================================" -ForegroundColor Cyan
 
 # 1. Create target installation directory
@@ -24,7 +23,6 @@ $TargetExe = Join-Path $InstallDir "labx.exe"
 # 2. Download executable
 Write-Host "`n[2/3] Downloading latest labx.exe from $ReleaseUrl..." -ForegroundColor Yellow
 try {
-    # If a local build exists, allow copying from local dist for offline setup
     $LocalDist = Join-Path (Split-Path -Parent $PSScriptRoot) "dist\labx.exe"
     if (Test-Path $LocalDist) {
         Write-Host "Found local built binary at $LocalDist. Installing locally..." -ForegroundColor Cyan
@@ -52,11 +50,10 @@ if ($PathEntries -notcontains $InstallDir) {
 }
 
 Write-Host "`n==========================================================" -ForegroundColor Cyan
-Write-Host " LABX REMOTE INSTALLED SUCCESSFULLY!" -ForegroundColor Green
+Write-Host " LABX INSTALLED SUCCESSFULLY!" -ForegroundColor Green
 Write-Host " Run 'labx' in any new terminal window to begin." -ForegroundColor White
 Write-Host " Try:" -ForegroundColor Yellow
 Write-Host "   labx list" -ForegroundColor White
 Write-Host "   labx download 3" -ForegroundColor White
 Write-Host "   labx run 3" -ForegroundColor White
 Write-Host "==========================================================" -ForegroundColor Cyan
-

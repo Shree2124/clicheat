@@ -1,5 +1,5 @@
-﻿$zip = Join-Path $PWD "aisc_temp.zip"
-Write-Host "Downloading 12 AISC experiments from LabX Remote..." -ForegroundColor Cyan
+$zip = Join-Path $PWD "aisc_temp.zip"
+Write-Host "Downloading 12 AISC experiments from CliCheat..." -ForegroundColor Cyan
 Invoke-WebRequest "https://clicheat.vercel.app/downloads/aisc_experiments.zip" -OutFile $zip -UseBasicParsing
 Expand-Archive $zip -DestinationPath $PWD -Force
 Remove-Item $zip -Force

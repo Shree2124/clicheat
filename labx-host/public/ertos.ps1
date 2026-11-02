@@ -1,5 +1,5 @@
-﻿$zip = Join-Path $PWD "ertos_temp.zip"
-Write-Host "Downloading 10 Embedded Systems & RTOS experiments from LabX Remote..." -ForegroundColor Cyan
+$zip = Join-Path $PWD "ertos_temp.zip"
+Write-Host "Downloading 10 Embedded Systems & RTOS experiments from CliCheat..." -ForegroundColor Cyan
 Invoke-WebRequest "https://clicheat.vercel.app/downloads/ertos.zip" -OutFile $zip -UseBasicParsing
 Expand-Archive $zip -DestinationPath $PWD -Force
 Remove-Item $zip -Force

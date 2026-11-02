@@ -1,4 +1,4 @@
-﻿param($Id)
+param($Id)
 if (-not $Id) {
     $Id = Read-Host "Enter experiment number (1-22)"
 }
