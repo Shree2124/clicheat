@@ -1,0 +1,32 @@
+{
+  "version": 2,
+  "buildCommand": "python scripts/build_host.py",
+  "outputDirectory": "labx-host/public",
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "Access-Control-Allow-Methods", "value": "GET, HEAD, POST, OPTIONS" },
+        { "key": "Access-Control-Allow-Headers", "value": "*" },
+        { "key": "Cache-Control", "value": "public, max-age=3600" }
+      ]
+    },
+    {
+      "source": "/(.*)\\.json",
+      "headers": [
+        { "key": "Content-Type", "value": "application/json; charset=utf-8" }
+      ]
+    }
+  ],
+  "rewrites": [
+    { "source": "/r", "destination": "/api/raw" }
+  ],
+  "redirects": [
+    {
+      "source": "/s/:id",
+      "destination": "https://dpaste.org/:id/raw",
+      "permanent": false
+    }
+  ]
+}

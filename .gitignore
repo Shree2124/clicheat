@@ -1,0 +1,70 @@
+# ──────────────────────────────────────────
+# Python
+# ──────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+.venv/
+venv/
+env/
+ENV/
+pip-wheel-metadata/
+*.spec.bak
+
+# PyInstaller output (keep labx-host/public/downloads/labx.exe in git if intentional)
+# build/  ← already covered above
+
+# ──────────────────────────────────────────
+# Node / Vercel
+# ──────────────────────────────────────────
+node_modules/
+.vercel/
+.next/
+.output/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+
+# ──────────────────────────────────────────
+# Environment & secrets
+# ──────────────────────────────────────────
+.env
+.env.*
+!.env.example
+
+# ──────────────────────────────────────────
+# OS / editor artefacts
+# ──────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# ──────────────────────────────────────────
+# Zip staging directories (created by build_host.py)
+# ──────────────────────────────────────────
+labx-host/zip_staging_all/
+labx-host/zip_staging_ertos/
+labx-host/zip_staging_aisc/
+labx-host/zip_staging_rtos/
+
+# ──────────────────────────────────────────
+# Test / coverage
+# ──────────────────────────────────────────
+.pytest_cache/
+.coverage
+htmlcov/
+coverage.xml

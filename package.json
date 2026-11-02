@@ -1,0 +1,12 @@
+{
+  "name": "aisc-cli-host",
+  "version": "1.0.0",
+  "description": "LabX Remote – AISC & Embedded Systems lab experiment host",
+  "private": true,
+  "scripts": {
+    "build": "python scripts/build_host.py"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
